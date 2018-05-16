@@ -1,0 +1,1116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ProyectoISModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Anteproyecto">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ProyectoID" Type="int" Nullable="false" />
+          <Property Name="NombreProyecto" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Objetivo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Justificacion" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Cronograma" Type="image" Nullable="false" />
+          <Property Name="DescActividades" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NombreEmp" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GiroEmp" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DireccionEmp" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CargoEmp" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TelefonoEmp" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CorreoElecEmp" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="estatus" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ProyectoIS.dbo.BancoProyecto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="BancoProyecto">
+          <Key>
+            <PropertyRef Name="ProyectoID" />
+            <PropertyRef Name="Empresa" />
+            <PropertyRef Name="CiudadEmp" />
+            <PropertyRef Name="Telefono" />
+          </Key>
+          <Property Name="ProyectoID" Type="int" Nullable="false" />
+          <Property Name="Empresa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CiudadEmp" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telefono" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Carrera">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ProyectoIS.dbo.EmpleadoAnteproyecto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="EmpleadoAnteproyecto">
+          <Key>
+            <PropertyRef Name="EmpleadoID" />
+            <PropertyRef Name="AnteproyectoID" />
+          </Key>
+          <Property Name="EmpleadoID" Type="int" Nullable="false" />
+          <Property Name="AnteproyectoID" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ProyectoIS.dbo.EmpleadoInformeTecnico' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="EmpleadoInformeTecnico">
+          <Key>
+            <PropertyRef Name="EmpleadoID" />
+            <PropertyRef Name="InformeTecnicoID" />
+          </Key>
+          <Property Name="EmpleadoID" Type="int" Nullable="false" />
+          <Property Name="InformeTecnicoID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Examen">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="imagen" Type="image" />
+        </EntityType>
+        <EntityType Name="InformeTecnico">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ProyectoID" Type="int" Nullable="false" />
+          <Property Name="AlumnoID" Type="int" Nullable="false" />
+          <Property Name="NombreProyecto" Type="nvarchar" MaxLength="50" />
+          <Property Name="NomEmp" Type="nvarchar" MaxLength="50" />
+          <Property Name="NomAlumno" Type="nvarchar" MaxLength="50" />
+          <Property Name="Carrera" Type="nvarchar" MaxLength="50" />
+          <Property Name="AsesorInterno" Type="nvarchar" MaxLength="50" />
+          <Property Name="AsesorExterno" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="Agradecimientos" Type="nvarchar" MaxLength="250" />
+          <Property Name="Resumen" Type="nvarchar" MaxLength="250" />
+          <Property Name="Indice" Type="nvarchar" MaxLength="250" />
+          <Property Name="estatus" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Proyecto">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ambito" Type="nvarchar" MaxLength="50" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="100" />
+          <Property Name="Estatus" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Residencia">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="AlumnoID" Type="int" Nullable="false" />
+          <Property Name="ProyectoID" Type="int" Nullable="false" />
+          <Property Name="FechaDeSolicitud" Type="datetime" />
+          <Property Name="Estatus" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tipousuario">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tipo" Type="nvarchar" MaxLength="50" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Titulacion">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="UsuarioID" Type="int" />
+          <Property Name="FechaSolicitud" Type="datetime" />
+          <Property Name="Estatus" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TitulacionExamen">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ExamenID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TitulacionProyecto">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ProyectoID" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TitulacionTesis">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ProyectoID" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="NumeroDeControl" />
+          </Key>
+          <Property Name="NumeroDeControl" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Apellidos" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefono" Type="varchar" MaxLength="50" />
+          <Property Name="fechaIngreso" Type="datetime" />
+          <Property Name="CarreraID" Type="int" Nullable="false" />
+          <Property Name="TipoUsuarioID" Type="int" Nullable="false" />
+          <Property Name="Contraseña" Type="nvarchar" MaxLength="50" />
+          <Property Name="Estatus" Type="bit" />
+        </EntityType>
+        <Association Name="FK__Anteproye__Proye__4E88ABD4">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+          <End Role="Anteproyecto" Type="Self.Anteproyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Anteproyecto">
+              <PropertyRef Name="ProyectoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BancoProy__Proye__412EB0B6">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+          <End Role="BancoProyecto" Type="Self.BancoProyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BancoProyecto">
+              <PropertyRef Name="ProyectoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmpleadoA__Antep__5165187F">
+          <End Role="Anteproyecto" Type="Self.Anteproyecto" Multiplicity="1" />
+          <End Role="EmpleadoAnteproyecto" Type="Self.EmpleadoAnteproyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Anteproyecto">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmpleadoAnteproyecto">
+              <PropertyRef Name="AnteproyectoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmpleadoA__Emple__5070F446">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="EmpleadoAnteproyecto" Type="Self.EmpleadoAnteproyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="NumeroDeControl" />
+            </Principal>
+            <Dependent Role="EmpleadoAnteproyecto">
+              <PropertyRef Name="EmpleadoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmpleadoI__Emple__571DF1D5">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="EmpleadoInformeTecnico" Type="Self.EmpleadoInformeTecnico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="NumeroDeControl" />
+            </Principal>
+            <Dependent Role="EmpleadoInformeTecnico">
+              <PropertyRef Name="EmpleadoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmpleadoI__Infor__5812160E">
+          <End Role="InformeTecnico" Type="Self.InformeTecnico" Multiplicity="1" />
+          <End Role="EmpleadoInformeTecnico" Type="Self.EmpleadoInformeTecnico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InformeTecnico">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmpleadoInformeTecnico">
+              <PropertyRef Name="InformeTecnicoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InformeTe__Alumn__5535A963">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="InformeTecnico" Type="Self.InformeTecnico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="NumeroDeControl" />
+            </Principal>
+            <Dependent Role="InformeTecnico">
+              <PropertyRef Name="AlumnoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InformeTe__Proye__5441852A">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+          <End Role="InformeTecnico" Type="Self.InformeTecnico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="InformeTecnico">
+              <PropertyRef Name="ProyectoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Residenci__Alumn__60A75C0F">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Residencia" Type="Self.Residencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="NumeroDeControl" />
+            </Principal>
+            <Dependent Role="Residencia">
+              <PropertyRef Name="AlumnoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Residenci__Proye__619B8048">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+          <End Role="Residencia" Type="Self.Residencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Residencia">
+              <PropertyRef Name="ProyectoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Titulacio__Exame__5DCAEF64">
+          <End Role="Examen" Type="Self.Examen" Multiplicity="1" />
+          <End Role="TitulacionExamen" Type="Self.TitulacionExamen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Examen">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TitulacionExamen">
+              <PropertyRef Name="ExamenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Titulacio__Proye__47DBAE45">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+          <End Role="TitulacionTesis" Type="Self.TitulacionTesis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TitulacionTesis">
+              <PropertyRef Name="ProyectoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Titulacio__Proye__4BAC3F29">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+          <End Role="TitulacionProyecto" Type="Self.TitulacionProyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TitulacionProyecto">
+              <PropertyRef Name="ProyectoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Titulacio__Usuar__440B1D61">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Titulacion" Type="Self.Titulacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="NumeroDeControl" />
+            </Principal>
+            <Dependent Role="Titulacion">
+              <PropertyRef Name="UsuarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TitulacionEx__ID__5CD6CB2B">
+          <End Role="Titulacion" Type="Self.Titulacion" Multiplicity="1" />
+          <End Role="TitulacionExamen" Type="Self.TitulacionExamen" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Titulacion">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TitulacionExamen">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TitulacionPr__ID__4AB81AF0">
+          <End Role="Titulacion" Type="Self.Titulacion" Multiplicity="1" />
+          <End Role="TitulacionProyecto" Type="Self.TitulacionProyecto" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Titulacion">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TitulacionProyecto">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TitulacionTe__ID__46E78A0C">
+          <End Role="Titulacion" Type="Self.Titulacion" Multiplicity="1" />
+          <End Role="TitulacionTesis" Type="Self.TitulacionTesis" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Titulacion">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TitulacionTesis">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Usuario__Carrera__3B75D760">
+          <End Role="Carrera" Type="Self.Carrera" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carrera">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="CarreraID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Usuario__TipoUsu__3C69FB99">
+          <End Role="Tipousuario" Type="Self.Tipousuario" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipousuario">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="TipoUsuarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProyectoISModelStoreContainer">
+          <EntitySet Name="Anteproyecto" EntityType="Self.Anteproyecto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Carrera" EntityType="Self.Carrera" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Examen" EntityType="Self.Examen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InformeTecnico" EntityType="Self.InformeTecnico" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proyecto" EntityType="Self.Proyecto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Residencia" EntityType="Self.Residencia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipousuario" EntityType="Self.Tipousuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Titulacion" EntityType="Self.Titulacion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TitulacionExamen" EntityType="Self.TitulacionExamen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TitulacionProyecto" EntityType="Self.TitulacionProyecto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TitulacionTesis" EntityType="Self.TitulacionTesis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BancoProyecto" EntityType="Self.BancoProyecto" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [BancoProyecto].[ProyectoID] AS [ProyectoID], 
+    [BancoProyecto].[Empresa] AS [Empresa], 
+    [BancoProyecto].[CiudadEmp] AS [CiudadEmp], 
+    [BancoProyecto].[Telefono] AS [Telefono]
+    FROM [dbo].[BancoProyecto] AS [BancoProyecto]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="EmpleadoAnteproyecto" EntityType="Self.EmpleadoAnteproyecto" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [EmpleadoAnteproyecto].[EmpleadoID] AS [EmpleadoID], 
+    [EmpleadoAnteproyecto].[AnteproyectoID] AS [AnteproyectoID]
+    FROM [dbo].[EmpleadoAnteproyecto] AS [EmpleadoAnteproyecto]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="EmpleadoInformeTecnico" EntityType="Self.EmpleadoInformeTecnico" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [EmpleadoInformeTecnico].[EmpleadoID] AS [EmpleadoID], 
+    [EmpleadoInformeTecnico].[InformeTecnicoID] AS [InformeTecnicoID]
+    FROM [dbo].[EmpleadoInformeTecnico] AS [EmpleadoInformeTecnico]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Anteproye__Proye__4E88ABD4" Association="Self.FK__Anteproye__Proye__4E88ABD4">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="Anteproyecto" EntitySet="Anteproyecto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BancoProy__Proye__412EB0B6" Association="Self.FK__BancoProy__Proye__412EB0B6">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="BancoProyecto" EntitySet="BancoProyecto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmpleadoA__Antep__5165187F" Association="Self.FK__EmpleadoA__Antep__5165187F">
+            <End Role="Anteproyecto" EntitySet="Anteproyecto" />
+            <End Role="EmpleadoAnteproyecto" EntitySet="EmpleadoAnteproyecto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmpleadoA__Emple__5070F446" Association="Self.FK__EmpleadoA__Emple__5070F446">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="EmpleadoAnteproyecto" EntitySet="EmpleadoAnteproyecto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmpleadoI__Emple__571DF1D5" Association="Self.FK__EmpleadoI__Emple__571DF1D5">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="EmpleadoInformeTecnico" EntitySet="EmpleadoInformeTecnico" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmpleadoI__Infor__5812160E" Association="Self.FK__EmpleadoI__Infor__5812160E">
+            <End Role="InformeTecnico" EntitySet="InformeTecnico" />
+            <End Role="EmpleadoInformeTecnico" EntitySet="EmpleadoInformeTecnico" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InformeTe__Alumn__5535A963" Association="Self.FK__InformeTe__Alumn__5535A963">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="InformeTecnico" EntitySet="InformeTecnico" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InformeTe__Proye__5441852A" Association="Self.FK__InformeTe__Proye__5441852A">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="InformeTecnico" EntitySet="InformeTecnico" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Residenci__Alumn__60A75C0F" Association="Self.FK__Residenci__Alumn__60A75C0F">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Residencia" EntitySet="Residencia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Residenci__Proye__619B8048" Association="Self.FK__Residenci__Proye__619B8048">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="Residencia" EntitySet="Residencia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Titulacio__Exame__5DCAEF64" Association="Self.FK__Titulacio__Exame__5DCAEF64">
+            <End Role="Examen" EntitySet="Examen" />
+            <End Role="TitulacionExamen" EntitySet="TitulacionExamen" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Titulacio__Proye__47DBAE45" Association="Self.FK__Titulacio__Proye__47DBAE45">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="TitulacionTesis" EntitySet="TitulacionTesis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Titulacio__Proye__4BAC3F29" Association="Self.FK__Titulacio__Proye__4BAC3F29">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="TitulacionProyecto" EntitySet="TitulacionProyecto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Titulacio__Usuar__440B1D61" Association="Self.FK__Titulacio__Usuar__440B1D61">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Titulacion" EntitySet="Titulacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TitulacionEx__ID__5CD6CB2B" Association="Self.FK__TitulacionEx__ID__5CD6CB2B">
+            <End Role="Titulacion" EntitySet="Titulacion" />
+            <End Role="TitulacionExamen" EntitySet="TitulacionExamen" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TitulacionPr__ID__4AB81AF0" Association="Self.FK__TitulacionPr__ID__4AB81AF0">
+            <End Role="Titulacion" EntitySet="Titulacion" />
+            <End Role="TitulacionProyecto" EntitySet="TitulacionProyecto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TitulacionTe__ID__46E78A0C" Association="Self.FK__TitulacionTe__ID__46E78A0C">
+            <End Role="Titulacion" EntitySet="Titulacion" />
+            <End Role="TitulacionTesis" EntitySet="TitulacionTesis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Usuario__Carrera__3B75D760" Association="Self.FK__Usuario__Carrera__3B75D760">
+            <End Role="Carrera" EntitySet="Carrera" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Usuario__TipoUsu__3C69FB99" Association="Self.FK__Usuario__TipoUsu__3C69FB99">
+            <End Role="Tipousuario" EntitySet="Tipousuario" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProyectoISModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Anteproyecto">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ProyectoID" Type="Int32" Nullable="false" />
+          <Property Name="NombreProyecto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Objetivo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Justificacion" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cronograma" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="DescActividades" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NombreEmp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GiroEmp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DireccionEmp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CargoEmp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TelefonoEmp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CorreoElecEmp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="estatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Proyecto" Relationship="Self.FK__Anteproye__Proye__4E88ABD4" FromRole="Anteproyecto" ToRole="Proyecto" />
+          <NavigationProperty Name="Usuario" Relationship="Self.EmpleadoAnteproyecto" FromRole="Anteproyecto" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Carrera">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK__Usuario__Carrera__3B75D760" FromRole="Carrera" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Examen">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Titulacion" Relationship="Self.TitulacionExamen" FromRole="Examen" ToRole="Titulacion" />
+        </EntityType>
+        <EntityType Name="InformeTecnico">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ProyectoID" Type="Int32" Nullable="false" />
+          <Property Name="AlumnoID" Type="Int32" Nullable="false" />
+          <Property Name="NombreProyecto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NomEmp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NomAlumno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Carrera" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AsesorInterno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AsesorExterno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <Property Name="Agradecimientos" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Resumen" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Indice" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="estatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK__InformeTe__Alumn__5535A963" FromRole="InformeTecnico" ToRole="Usuario" />
+          <NavigationProperty Name="Proyecto" Relationship="Self.FK__InformeTe__Proye__5441852A" FromRole="InformeTecnico" ToRole="Proyecto" />
+          <NavigationProperty Name="Usuario1" Relationship="Self.EmpleadoInformeTecnico" FromRole="InformeTecnico" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Proyecto">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ambito" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Estatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Anteproyecto" Relationship="Self.FK__Anteproye__Proye__4E88ABD4" FromRole="Proyecto" ToRole="Anteproyecto" />
+          <NavigationProperty Name="InformeTecnico" Relationship="Self.FK__InformeTe__Proye__5441852A" FromRole="Proyecto" ToRole="InformeTecnico" />
+          <NavigationProperty Name="BancoProyecto" Relationship="Self.FK__BancoProy__Proye__412EB0B6" FromRole="Proyecto" ToRole="BancoProyecto" />
+          <NavigationProperty Name="Residencia" Relationship="Self.FK__Residenci__Proye__619B8048" FromRole="Proyecto" ToRole="Residencia" />
+          <NavigationProperty Name="TitulacionTesis" Relationship="Self.FK__Titulacio__Proye__47DBAE45" FromRole="Proyecto" ToRole="TitulacionTesis" />
+          <NavigationProperty Name="TitulacionProyecto" Relationship="Self.FK__Titulacio__Proye__4BAC3F29" FromRole="Proyecto" ToRole="TitulacionProyecto" />
+        </EntityType>
+        <EntityType Name="Residencia">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="AlumnoID" Type="Int32" Nullable="false" />
+          <Property Name="ProyectoID" Type="Int32" Nullable="false" />
+          <Property Name="FechaDeSolicitud" Type="DateTime" Precision="3" />
+          <Property Name="Estatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Proyecto" Relationship="Self.FK__Residenci__Proye__619B8048" FromRole="Residencia" ToRole="Proyecto" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK__Residenci__Alumn__60A75C0F" FromRole="Residencia" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Tipousuario">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK__Usuario__TipoUsu__3C69FB99" FromRole="Tipousuario" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Titulacion">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="UsuarioID" Type="Int32" />
+          <Property Name="FechaSolicitud" Type="DateTime" Precision="3" />
+          <Property Name="Estatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK__Titulacio__Usuar__440B1D61" FromRole="Titulacion" ToRole="Usuario" />
+          <NavigationProperty Name="TitulacionProyecto" Relationship="Self.FK__TitulacionPr__ID__4AB81AF0" FromRole="Titulacion" ToRole="TitulacionProyecto" />
+          <NavigationProperty Name="TitulacionTesis" Relationship="Self.FK__TitulacionTe__ID__46E78A0C" FromRole="Titulacion" ToRole="TitulacionTesis" />
+          <NavigationProperty Name="Examen" Relationship="Self.TitulacionExamen" FromRole="Titulacion" ToRole="Examen" />
+        </EntityType>
+        <EntityType Name="TitulacionProyecto">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ProyectoID" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Proyecto" Relationship="Self.FK__Titulacio__Proye__4BAC3F29" FromRole="TitulacionProyecto" ToRole="Proyecto" />
+          <NavigationProperty Name="Titulacion" Relationship="Self.FK__TitulacionPr__ID__4AB81AF0" FromRole="TitulacionProyecto" ToRole="Titulacion" />
+        </EntityType>
+        <EntityType Name="TitulacionTesis">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ProyectoID" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Proyecto" Relationship="Self.FK__Titulacio__Proye__47DBAE45" FromRole="TitulacionTesis" ToRole="Proyecto" />
+          <NavigationProperty Name="Titulacion" Relationship="Self.FK__TitulacionTe__ID__46E78A0C" FromRole="TitulacionTesis" ToRole="Titulacion" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="NumeroDeControl" />
+          </Key>
+          <Property Name="NumeroDeControl" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fechaIngreso" Type="DateTime" Precision="3" />
+          <Property Name="CarreraID" Type="Int32" Nullable="false" />
+          <Property Name="TipoUsuarioID" Type="Int32" Nullable="false" />
+          <Property Name="Contraseña" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Estatus" Type="Boolean" />
+          <NavigationProperty Name="Carrera" Relationship="Self.FK__Usuario__Carrera__3B75D760" FromRole="Usuario" ToRole="Carrera" />
+          <NavigationProperty Name="InformeTecnico" Relationship="Self.FK__InformeTe__Alumn__5535A963" FromRole="Usuario" ToRole="InformeTecnico" />
+          <NavigationProperty Name="Residencia" Relationship="Self.FK__Residenci__Alumn__60A75C0F" FromRole="Usuario" ToRole="Residencia" />
+          <NavigationProperty Name="Tipousuario" Relationship="Self.FK__Usuario__TipoUsu__3C69FB99" FromRole="Usuario" ToRole="Tipousuario" />
+          <NavigationProperty Name="Titulacion" Relationship="Self.FK__Titulacio__Usuar__440B1D61" FromRole="Usuario" ToRole="Titulacion" />
+          <NavigationProperty Name="Anteproyecto" Relationship="Self.EmpleadoAnteproyecto" FromRole="Usuario" ToRole="Anteproyecto" />
+          <NavigationProperty Name="InformeTecnico1" Relationship="Self.EmpleadoInformeTecnico" FromRole="Usuario" ToRole="InformeTecnico" />
+        </EntityType>
+        <EntityType Name="BancoProyecto">
+          <Key>
+            <PropertyRef Name="ProyectoID" />
+            <PropertyRef Name="Empresa" />
+            <PropertyRef Name="CiudadEmp" />
+            <PropertyRef Name="Telefono" />
+          </Key>
+          <Property Name="ProyectoID" Type="Int32" Nullable="false" />
+          <Property Name="Empresa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CiudadEmp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telefono" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Proyecto" Relationship="Self.FK__BancoProy__Proye__412EB0B6" FromRole="BancoProyecto" ToRole="Proyecto" />
+        </EntityType>
+        <Association Name="FK__Anteproye__Proye__4E88ABD4">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+          <End Role="Anteproyecto" Type="Self.Anteproyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Anteproyecto">
+              <PropertyRef Name="ProyectoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Usuario__Carrera__3B75D760">
+          <End Role="Carrera" Type="Self.Carrera" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carrera">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="CarreraID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InformeTe__Alumn__5535A963">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="InformeTecnico" Type="Self.InformeTecnico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="NumeroDeControl" />
+            </Principal>
+            <Dependent Role="InformeTecnico">
+              <PropertyRef Name="AlumnoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InformeTe__Proye__5441852A">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+          <End Role="InformeTecnico" Type="Self.InformeTecnico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="InformeTecnico">
+              <PropertyRef Name="ProyectoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BancoProy__Proye__412EB0B6">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+          <End Role="BancoProyecto" Type="Self.BancoProyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BancoProyecto">
+              <PropertyRef Name="ProyectoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Residenci__Proye__619B8048">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+          <End Role="Residencia" Type="Self.Residencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Residencia">
+              <PropertyRef Name="ProyectoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Titulacio__Proye__47DBAE45">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+          <End Role="TitulacionTesis" Type="Self.TitulacionTesis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TitulacionTesis">
+              <PropertyRef Name="ProyectoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Titulacio__Proye__4BAC3F29">
+          <End Role="Proyecto" Type="Self.Proyecto" Multiplicity="1" />
+          <End Role="TitulacionProyecto" Type="Self.TitulacionProyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proyecto">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TitulacionProyecto">
+              <PropertyRef Name="ProyectoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Residenci__Alumn__60A75C0F">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Residencia" Type="Self.Residencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="NumeroDeControl" />
+            </Principal>
+            <Dependent Role="Residencia">
+              <PropertyRef Name="AlumnoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Usuario__TipoUsu__3C69FB99">
+          <End Role="Tipousuario" Type="Self.Tipousuario" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipousuario">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="TipoUsuarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Titulacio__Usuar__440B1D61">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Titulacion" Type="Self.Titulacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="NumeroDeControl" />
+            </Principal>
+            <Dependent Role="Titulacion">
+              <PropertyRef Name="UsuarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TitulacionPr__ID__4AB81AF0">
+          <End Role="Titulacion" Type="Self.Titulacion" Multiplicity="1" />
+          <End Role="TitulacionProyecto" Type="Self.TitulacionProyecto" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Titulacion">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TitulacionProyecto">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TitulacionTe__ID__46E78A0C">
+          <End Role="Titulacion" Type="Self.Titulacion" Multiplicity="1" />
+          <End Role="TitulacionTesis" Type="Self.TitulacionTesis" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Titulacion">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TitulacionTesis">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TitulacionExamen">
+          <End Role="Examen" Type="Self.Examen" Multiplicity="0..1" />
+          <End Role="Titulacion" Type="Self.Titulacion" Multiplicity="*" />
+        </Association>
+        <Association Name="EmpleadoAnteproyecto">
+          <End Role="Anteproyecto" Type="Self.Anteproyecto" Multiplicity="*" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+        </Association>
+        <Association Name="EmpleadoInformeTecnico">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <End Role="InformeTecnico" Type="Self.InformeTecnico" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="ProyectoISEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Anteproyecto" EntityType="Self.Anteproyecto" />
+          <EntitySet Name="Carrera" EntityType="Self.Carrera" />
+          <EntitySet Name="Examen" EntityType="Self.Examen" />
+          <EntitySet Name="InformeTecnico" EntityType="Self.InformeTecnico" />
+          <EntitySet Name="Proyecto" EntityType="Self.Proyecto" />
+          <EntitySet Name="Residencia" EntityType="Self.Residencia" />
+          <EntitySet Name="Tipousuario" EntityType="Self.Tipousuario" />
+          <EntitySet Name="Titulacion" EntityType="Self.Titulacion" />
+          <EntitySet Name="TitulacionProyecto" EntityType="Self.TitulacionProyecto" />
+          <EntitySet Name="TitulacionTesis" EntityType="Self.TitulacionTesis" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <EntitySet Name="BancoProyecto" EntityType="Self.BancoProyecto" />
+          <AssociationSet Name="FK__Anteproye__Proye__4E88ABD4" Association="Self.FK__Anteproye__Proye__4E88ABD4">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="Anteproyecto" EntitySet="Anteproyecto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Usuario__Carrera__3B75D760" Association="Self.FK__Usuario__Carrera__3B75D760">
+            <End Role="Carrera" EntitySet="Carrera" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InformeTe__Alumn__5535A963" Association="Self.FK__InformeTe__Alumn__5535A963">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="InformeTecnico" EntitySet="InformeTecnico" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InformeTe__Proye__5441852A" Association="Self.FK__InformeTe__Proye__5441852A">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="InformeTecnico" EntitySet="InformeTecnico" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BancoProy__Proye__412EB0B6" Association="Self.FK__BancoProy__Proye__412EB0B6">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="BancoProyecto" EntitySet="BancoProyecto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Residenci__Proye__619B8048" Association="Self.FK__Residenci__Proye__619B8048">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="Residencia" EntitySet="Residencia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Titulacio__Proye__47DBAE45" Association="Self.FK__Titulacio__Proye__47DBAE45">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="TitulacionTesis" EntitySet="TitulacionTesis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Titulacio__Proye__4BAC3F29" Association="Self.FK__Titulacio__Proye__4BAC3F29">
+            <End Role="Proyecto" EntitySet="Proyecto" />
+            <End Role="TitulacionProyecto" EntitySet="TitulacionProyecto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Residenci__Alumn__60A75C0F" Association="Self.FK__Residenci__Alumn__60A75C0F">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Residencia" EntitySet="Residencia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Usuario__TipoUsu__3C69FB99" Association="Self.FK__Usuario__TipoUsu__3C69FB99">
+            <End Role="Tipousuario" EntitySet="Tipousuario" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Titulacio__Usuar__440B1D61" Association="Self.FK__Titulacio__Usuar__440B1D61">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Titulacion" EntitySet="Titulacion" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TitulacionPr__ID__4AB81AF0" Association="Self.FK__TitulacionPr__ID__4AB81AF0">
+            <End Role="Titulacion" EntitySet="Titulacion" />
+            <End Role="TitulacionProyecto" EntitySet="TitulacionProyecto" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TitulacionTe__ID__46E78A0C" Association="Self.FK__TitulacionTe__ID__46E78A0C">
+            <End Role="Titulacion" EntitySet="Titulacion" />
+            <End Role="TitulacionTesis" EntitySet="TitulacionTesis" />
+          </AssociationSet>
+          <AssociationSet Name="TitulacionExamen" Association="Self.TitulacionExamen">
+            <End Role="Examen" EntitySet="Examen" />
+            <End Role="Titulacion" EntitySet="Titulacion" />
+          </AssociationSet>
+          <AssociationSet Name="EmpleadoAnteproyecto" Association="Self.EmpleadoAnteproyecto">
+            <End Role="Anteproyecto" EntitySet="Anteproyecto" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="EmpleadoInformeTecnico" Association="Self.EmpleadoInformeTecnico">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="InformeTecnico" EntitySet="InformeTecnico" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProyectoISModelStoreContainer" CdmEntityContainer="ProyectoISEntities">
+          <EntitySetMapping Name="Anteproyecto">
+            <EntityTypeMapping TypeName="ProyectoISModel.Anteproyecto">
+              <MappingFragment StoreEntitySet="Anteproyecto">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ProyectoID" ColumnName="ProyectoID" />
+                <ScalarProperty Name="NombreProyecto" ColumnName="NombreProyecto" />
+                <ScalarProperty Name="Objetivo" ColumnName="Objetivo" />
+                <ScalarProperty Name="Justificacion" ColumnName="Justificacion" />
+                <ScalarProperty Name="Cronograma" ColumnName="Cronograma" />
+                <ScalarProperty Name="DescActividades" ColumnName="DescActividades" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="NombreEmp" ColumnName="NombreEmp" />
+                <ScalarProperty Name="GiroEmp" ColumnName="GiroEmp" />
+                <ScalarProperty Name="DireccionEmp" ColumnName="DireccionEmp" />
+                <ScalarProperty Name="CargoEmp" ColumnName="CargoEmp" />
+                <ScalarProperty Name="TelefonoEmp" ColumnName="TelefonoEmp" />
+                <ScalarProperty Name="CorreoElecEmp" ColumnName="CorreoElecEmp" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Carrera">
+            <EntityTypeMapping TypeName="ProyectoISModel.Carrera">
+              <MappingFragment StoreEntitySet="Carrera">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Examen">
+            <EntityTypeMapping TypeName="ProyectoISModel.Examen">
+              <MappingFragment StoreEntitySet="Examen">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InformeTecnico">
+            <EntityTypeMapping TypeName="ProyectoISModel.InformeTecnico">
+              <MappingFragment StoreEntitySet="InformeTecnico">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ProyectoID" ColumnName="ProyectoID" />
+                <ScalarProperty Name="AlumnoID" ColumnName="AlumnoID" />
+                <ScalarProperty Name="NombreProyecto" ColumnName="NombreProyecto" />
+                <ScalarProperty Name="NomEmp" ColumnName="NomEmp" />
+                <ScalarProperty Name="NomAlumno" ColumnName="NomAlumno" />
+                <ScalarProperty Name="Carrera" ColumnName="Carrera" />
+                <ScalarProperty Name="AsesorInterno" ColumnName="AsesorInterno" />
+                <ScalarProperty Name="AsesorExterno" ColumnName="AsesorExterno" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Agradecimientos" ColumnName="Agradecimientos" />
+                <ScalarProperty Name="Resumen" ColumnName="Resumen" />
+                <ScalarProperty Name="Indice" ColumnName="Indice" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proyecto">
+            <EntityTypeMapping TypeName="ProyectoISModel.Proyecto">
+              <MappingFragment StoreEntitySet="Proyecto">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Ambito" ColumnName="Ambito" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Residencia">
+            <EntityTypeMapping TypeName="ProyectoISModel.Residencia">
+              <MappingFragment StoreEntitySet="Residencia">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AlumnoID" ColumnName="AlumnoID" />
+                <ScalarProperty Name="ProyectoID" ColumnName="ProyectoID" />
+                <ScalarProperty Name="FechaDeSolicitud" ColumnName="FechaDeSolicitud" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipousuario">
+            <EntityTypeMapping TypeName="ProyectoISModel.Tipousuario">
+              <MappingFragment StoreEntitySet="Tipousuario">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Titulacion">
+            <EntityTypeMapping TypeName="ProyectoISModel.Titulacion">
+              <MappingFragment StoreEntitySet="Titulacion">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UsuarioID" ColumnName="UsuarioID" />
+                <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TitulacionProyecto">
+            <EntityTypeMapping TypeName="ProyectoISModel.TitulacionProyecto">
+              <MappingFragment StoreEntitySet="TitulacionProyecto">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ProyectoID" ColumnName="ProyectoID" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TitulacionTesis">
+            <EntityTypeMapping TypeName="ProyectoISModel.TitulacionTesis">
+              <MappingFragment StoreEntitySet="TitulacionTesis">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ProyectoID" ColumnName="ProyectoID" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="ProyectoISModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="NumeroDeControl" ColumnName="NumeroDeControl" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="fechaIngreso" ColumnName="fechaIngreso" />
+                <ScalarProperty Name="CarreraID" ColumnName="CarreraID" />
+                <ScalarProperty Name="TipoUsuarioID" ColumnName="TipoUsuarioID" />
+                <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BancoProyecto">
+            <EntityTypeMapping TypeName="ProyectoISModel.BancoProyecto">
+              <MappingFragment StoreEntitySet="BancoProyecto">
+                <ScalarProperty Name="ProyectoID" ColumnName="ProyectoID" />
+                <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+                <ScalarProperty Name="CiudadEmp" ColumnName="CiudadEmp" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="TitulacionExamen" TypeName="ProyectoISModel.TitulacionExamen" StoreEntitySet="TitulacionExamen">
+            <EndProperty Name="Examen">
+              <ScalarProperty Name="ID" ColumnName="ExamenID" />
+            </EndProperty>
+            <EndProperty Name="Titulacion">
+              <ScalarProperty Name="ID" ColumnName="ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="EmpleadoAnteproyecto" TypeName="ProyectoISModel.EmpleadoAnteproyecto" StoreEntitySet="EmpleadoAnteproyecto">
+            <EndProperty Name="Anteproyecto">
+              <ScalarProperty Name="ID" ColumnName="AnteproyectoID" />
+            </EndProperty>
+            <EndProperty Name="Usuario">
+              <ScalarProperty Name="NumeroDeControl" ColumnName="EmpleadoID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="EmpleadoInformeTecnico" TypeName="ProyectoISModel.EmpleadoInformeTecnico" StoreEntitySet="EmpleadoInformeTecnico">
+            <EndProperty Name="Usuario">
+              <ScalarProperty Name="NumeroDeControl" ColumnName="EmpleadoID" />
+            </EndProperty>
+            <EndProperty Name="InformeTecnico">
+              <ScalarProperty Name="ID" ColumnName="InformeTecnicoID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
