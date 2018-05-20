@@ -13,10 +13,10 @@ namespace ISP.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ProyectoISEntities : DbContext
+    public partial class ProyectoISEntities1 : DbContext
     {
-        public ProyectoISEntities()
-            : base("name=ProyectoISEntities")
+        public ProyectoISEntities1()
+            : base("name=ProyectoISEntities1")
         {
         }
     
@@ -26,16 +26,15 @@ namespace ISP.Models
         }
     
         public virtual DbSet<Anteproyecto> Anteproyecto { get; set; }
+        public virtual DbSet<BancoProyecto> BancoProyecto { get; set; }
         public virtual DbSet<Carrera> Carrera { get; set; }
         public virtual DbSet<Examen> Examen { get; set; }
         public virtual DbSet<InformeTecnico> InformeTecnico { get; set; }
-        public virtual DbSet<Proyecto> Proyecto { get; set; }
         public virtual DbSet<Residencia> Residencia { get; set; }
         public virtual DbSet<Tipousuario> Tipousuario { get; set; }
         public virtual DbSet<Titulacion> Titulacion { get; set; }
         public virtual DbSet<TitulacionProyecto> TitulacionProyecto { get; set; }
         public virtual DbSet<TitulacionTesis> TitulacionTesis { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
-        public virtual DbSet<BancoProyecto> BancoProyecto { get; set; }
     }
 }

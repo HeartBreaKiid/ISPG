@@ -16,11 +16,11 @@ namespace ISP.Models
     {
         public Anteproyecto()
         {
+            this.InformeTecnico = new HashSet<InformeTecnico>();
             this.Usuario = new HashSet<Usuario>();
         }
     
         public int ID { get; set; }
-        public int ProyectoID { get; set; }
         public string NombreProyecto { get; set; }
         public string Objetivo { get; set; }
         public string Justificacion { get; set; }
@@ -35,7 +35,7 @@ namespace ISP.Models
         public string CorreoElecEmp { get; set; }
         public string estatus { get; set; }
     
-        public virtual Proyecto Proyecto { get; set; }
+        public virtual ICollection<InformeTecnico> InformeTecnico { get; set; }
         public virtual ICollection<Usuario> Usuario { get; set; }
     }
 }

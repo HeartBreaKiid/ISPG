@@ -14,11 +14,13 @@ namespace ISP.Models
     
     public partial class BancoProyecto
     {
-        public int ProyectoID { get; set; }
+        public int ID { get; set; }
         public string Empresa { get; set; }
-        public string CiudadEmp { get; set; }
+        public string NomProyecto { get; set; }
+        public string CarrNoReside { get; set; }
+        public string Contacto { get; set; }
+        public string Correo { get; set; }
         public int Telefono { get; set; }
-    
-        public virtual Proyecto Proyecto { get; set; }
+        public string Ciudad { get; set; }
     }
 }

@@ -15,10 +15,18 @@ namespace ISP.Models
     public partial class TitulacionTesis
     {
         public int ID { get; set; }
-        public int ProyectoID { get; set; }
-        public string Descripcion { get; set; }
+        public string NombreProyecto { get; set; }
+        public string NomEmp { get; set; }
+        public string NomAlumno { get; set; }
+        public string Carrera { get; set; }
+        public string AsesorInterno { get; set; }
+        public string AsesorExterno { get; set; }
+        public Nullable<System.DateTime> Fecha { get; set; }
+        public string Agradecimientos { get; set; }
+        public string Resumen { get; set; }
+        public string Indice { get; set; }
+        public string estatus { get; set; }
     
-        public virtual Proyecto Proyecto { get; set; }
         public virtual Titulacion Titulacion { get; set; }
     }
 }

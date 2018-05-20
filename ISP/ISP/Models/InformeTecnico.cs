@@ -20,8 +20,8 @@ namespace ISP.Models
         }
     
         public int ID { get; set; }
-        public int ProyectoID { get; set; }
         public int AlumnoID { get; set; }
+        public int AnteProyectoID { get; set; }
         public string NombreProyecto { get; set; }
         public string NomEmp { get; set; }
         public string NomAlumno { get; set; }
@@ -34,8 +34,8 @@ namespace ISP.Models
         public string Indice { get; set; }
         public string estatus { get; set; }
     
+        public virtual Anteproyecto Anteproyecto { get; set; }
         public virtual Usuario Usuario { get; set; }
-        public virtual Proyecto Proyecto { get; set; }
         public virtual ICollection<Usuario> Usuario1 { get; set; }
     }
 }

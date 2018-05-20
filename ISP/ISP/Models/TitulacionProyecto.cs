@@ -15,10 +15,8 @@ namespace ISP.Models
     public partial class TitulacionProyecto
     {
         public int ID { get; set; }
-        public int ProyectoID { get; set; }
         public string Descripcion { get; set; }
     
-        public virtual Proyecto Proyecto { get; set; }
         public virtual Titulacion Titulacion { get; set; }
     }
 }

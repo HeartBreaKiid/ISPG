@@ -9,11 +9,11 @@ namespace ISP.Controllers
 {
     public class HomeController : Controller
     {
-        ProyectoISEntities db = new ProyectoISEntities();
+        private ProyectoISEntities1 db = new ProyectoISEntities1();
         
         public ActionResult Index()
         {
-            return View(db.Proyecto.ToList());
+            return View();
         }
 
         public ActionResult About()

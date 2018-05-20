@@ -16,11 +16,9 @@ namespace ISP.Models
     {
         public int ID { get; set; }
         public int AlumnoID { get; set; }
-        public int ProyectoID { get; set; }
         public Nullable<System.DateTime> FechaDeSolicitud { get; set; }
         public string Estatus { get; set; }
     
-        public virtual Proyecto Proyecto { get; set; }
         public virtual Usuario Usuario { get; set; }
     }
 }
