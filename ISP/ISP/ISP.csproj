@@ -161,7 +161,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AnteproyectoEstudianteController.cs" />
+    <Compile Include="Controllers\BancoProyectoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InformeTecnicoEstudianteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -281,6 +284,21 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\AnteproyectoEstudiante\Create.cshtml" />
+    <Content Include="Views\AnteproyectoEstudiante\Delete.cshtml" />
+    <Content Include="Views\AnteproyectoEstudiante\Details.cshtml" />
+    <Content Include="Views\AnteproyectoEstudiante\Edit.cshtml" />
+    <Content Include="Views\AnteproyectoEstudiante\Index.cshtml" />
+    <Content Include="Views\InformeTecnicoEstudiante\Create.cshtml" />
+    <Content Include="Views\InformeTecnicoEstudiante\Delete.cshtml" />
+    <Content Include="Views\InformeTecnicoEstudiante\Details.cshtml" />
+    <Content Include="Views\InformeTecnicoEstudiante\Edit.cshtml" />
+    <Content Include="Views\InformeTecnicoEstudiante\Index.cshtml" />
+    <Content Include="Views\BancoProyecto\Create.cshtml" />
+    <Content Include="Views\BancoProyecto\Delete.cshtml" />
+    <Content Include="Views\BancoProyecto\Details.cshtml" />
+    <Content Include="Views\BancoProyecto\Edit.cshtml" />
+    <Content Include="Views\BancoProyecto\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

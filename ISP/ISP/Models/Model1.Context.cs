@@ -13,10 +13,10 @@ namespace ISP.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ProyectoISEntities1 : DbContext
+    public partial class ProyectoISEntities2 : DbContext
     {
-        public ProyectoISEntities1()
-            : base("name=ProyectoISEntities1")
+        public ProyectoISEntities2()
+            : base("name=ProyectoISEntities2")
         {
         }
     

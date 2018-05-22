@@ -89,6 +89,7 @@ dfn {
 }
 
 hr {
+  
   height: 0;
   -moz-box-sizing: content-box;
        box-sizing: content-box;
@@ -386,7 +387,7 @@ hr {
   margin-top: 20px;
   margin-bottom: 20px;
   border: 0;
-  border-top: 1px solid #eeeeee;
+  border-top: 1px solid #080808;
 }
 
 .sr-only {

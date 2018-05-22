@@ -1,0 +1,122 @@
+﻿@model ISP.Models.InformeTecnico
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>InformeTecnico</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreProyecto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreProyecto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomEmp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomEmp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomAlumno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomAlumno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Carrera)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carrera)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AsesorInterno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AsesorInterno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AsesorExterno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AsesorExterno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Agradecimientos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Agradecimientos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resumen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resumen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Indice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Indice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Anteproyecto.NombreProyecto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Anteproyecto.NombreProyecto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

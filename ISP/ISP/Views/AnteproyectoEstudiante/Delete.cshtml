@@ -1,0 +1,128 @@
+﻿@model ISP.Models.Anteproyecto
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Anteproyecto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreProyecto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreProyecto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Objetivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Objetivo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Justificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Justificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cronograma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cronograma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescActividades)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescActividades)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreEmp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreEmp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiroEmp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiroEmp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DireccionEmp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DireccionEmp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CargoEmp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CargoEmp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelefonoEmp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelefonoEmp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CorreoElecEmp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CorreoElecEmp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estatus)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -24,7 +24,7 @@ namespace ISP.Models
         public string NombreProyecto { get; set; }
         public string Objetivo { get; set; }
         public string Justificacion { get; set; }
-        public byte[] Cronograma { get; set; }
+        public string Cronograma { get; set; }
         public string DescActividades { get; set; }
         public string Direccion { get; set; }
         public string NombreEmp { get; set; }

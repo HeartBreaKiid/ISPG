@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ProyectoISModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ProyectoISModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Anteproyecto">
           <Key>
             <PropertyRef Name="ID" />
@@ -13,7 +13,7 @@
           <Property Name="NombreProyecto" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Objetivo" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Justificacion" Type="nvarchar" MaxLength="250" Nullable="false" />
-          <Property Name="Cronograma" Type="image" Nullable="false" />
+          <Property Name="Cronograma" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DescActividades" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="Direccion" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="NombreEmp" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -411,8 +411,7 @@ advertencia 6002: La tabla o vista 'ProyectoIS.dbo.EmpleadoInformeTecnico' no ti
             <End Role="Usuario" EntitySet="Usuario" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ProyectoISModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -424,7 +423,7 @@ advertencia 6002: La tabla o vista 'ProyectoIS.dbo.EmpleadoInformeTecnico' no ti
           <Property Name="NombreProyecto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Objetivo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Justificacion" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Cronograma" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="Cronograma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DescActividades" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NombreEmp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -675,7 +674,7 @@ advertencia 6002: La tabla o vista 'ProyectoIS.dbo.EmpleadoInformeTecnico' no ti
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
           <End Role="InformeTecnico" Type="Self.InformeTecnico" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="ProyectoISEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ProyectoISEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Anteproyecto" EntityType="Self.Anteproyecto" />
           <EntitySet Name="BancoProyecto" EntityType="Self.BancoProyecto" />
           <EntitySet Name="Carrera" EntityType="Self.Carrera" />
@@ -737,7 +736,7 @@ advertencia 6002: La tabla o vista 'ProyectoIS.dbo.EmpleadoInformeTecnico' no ti
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ProyectoISModelStoreContainer" CdmEntityContainer="ProyectoISEntities1">
+        <EntityContainerMapping StorageEntityContainer="ProyectoISModelStoreContainer" CdmEntityContainer="ProyectoISEntities2">
           <EntitySetMapping Name="Anteproyecto">
             <EntityTypeMapping TypeName="ProyectoISModel.Anteproyecto">
               <MappingFragment StoreEntitySet="Anteproyecto">

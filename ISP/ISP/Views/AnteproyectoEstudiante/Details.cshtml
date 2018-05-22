@@ -1,0 +1,122 @@
+﻿@model ISP.Models.Anteproyecto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Anteproyecto</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreProyecto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreProyecto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Objetivo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Objetivo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Justificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Justificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cronograma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cronograma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescActividades)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescActividades)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreEmp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreEmp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiroEmp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiroEmp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DireccionEmp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DireccionEmp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CargoEmp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CargoEmp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelefonoEmp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelefonoEmp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CorreoElecEmp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CorreoElecEmp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
