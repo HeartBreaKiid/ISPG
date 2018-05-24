@@ -165,6 +165,7 @@
     <Compile Include="Controllers\BancoProyectoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InformeTecnicoEstudianteController.cs" />
+    <Compile Include="Controllers\TesisEstudianteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -299,6 +300,11 @@
     <Content Include="Views\BancoProyecto\Details.cshtml" />
     <Content Include="Views\BancoProyecto\Edit.cshtml" />
     <Content Include="Views\BancoProyecto\Index.cshtml" />
+    <Content Include="Views\TesisEstudiante\Create.cshtml" />
+    <Content Include="Views\TesisEstudiante\Delete.cshtml" />
+    <Content Include="Views\TesisEstudiante\Details.cshtml" />
+    <Content Include="Views\TesisEstudiante\Edit.cshtml" />
+    <Content Include="Views\TesisEstudiante\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

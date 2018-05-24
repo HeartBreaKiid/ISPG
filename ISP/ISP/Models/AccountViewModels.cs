@@ -31,8 +31,8 @@ namespace ISP.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Nombre de usuario")]
-        public string UserName { get; set; }
+        [Display(Name = "Numero de Control")]
+        public string Nocontrol { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -45,6 +45,10 @@ namespace ISP.Models
 
     public class RegisterViewModel
     {
+        [Required]
+        [Display(Name = "Numero de Control")]
+        public string Nocontrol { get; set; }
+
         [Required]
         [Display(Name = "Nombre de usuario")]
         public string UserName { get; set; }
