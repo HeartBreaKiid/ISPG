@@ -15,6 +15,9 @@ namespace ISP.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+    
+
+
         public AccountController()
             : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
         {
@@ -78,7 +81,7 @@ namespace ISP.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser() { UserName = model.Nocontrol};
+                var user = new ApplicationUser() {Nocontrol = model.Nocontrol, UserName = model.Nocontrol, TipoUsuario = model.TipoUsuario };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

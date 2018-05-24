@@ -169,6 +169,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805230019486_InitialCreate.cs" />
+    <Compile Include="Migrations\201805230019486_InitialCreate.Designer.cs">
+      <DependentUpon>201805230019486_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805240137377_Agrego_Columna_Nocontrol.cs" />
+    <Compile Include="Migrations\201805240137377_Agrego_Columna_Nocontrol.Designer.cs">
+      <DependentUpon>201805240137377_Agrego_Columna_Nocontrol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805240328315_Agrego_columna_TipóUsuario.cs" />
+    <Compile Include="Migrations\201805240328315_Agrego_columna_TipóUsuario.Designer.cs">
+      <DependentUpon>201805240328315_Agrego_columna_TipóUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Anteproyecto.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -318,6 +331,17 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201805230019486_InitialCreate.resx">
+      <DependentUpon>201805230019486_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805240137377_Agrego_Columna_Nocontrol.resx">
+      <DependentUpon>201805240137377_Agrego_Columna_Nocontrol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805240328315_Agrego_columna_TipóUsuario.resx">
+      <DependentUpon>201805240328315_Agrego_columna_TipóUsuario.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
