@@ -13,7 +13,7 @@ namespace ISP.Controllers
         
         public ActionResult Index()
         {
-            return View(db.InformeTecnico.ToList());
+            return View();
         }
 
         public ActionResult About()
